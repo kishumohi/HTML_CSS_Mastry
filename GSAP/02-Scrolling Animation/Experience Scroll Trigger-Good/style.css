@@ -1,0 +1,54 @@
+@font-face {
+  font-family: "Gilroy-Regular";
+  src: url("https://db.onlinewebfonts.com/t/1dc8ecd8056a5ea7aa7de1db42b5b639.eot");
+  src: url("https://db.onlinewebfonts.com/t/1dc8ecd8056a5ea7aa7de1db42b5b639.eot?#iefix")
+      format("embedded-opentype"),
+    url("https://db.onlinewebfonts.com/t/1dc8ecd8056a5ea7aa7de1db42b5b639.woff2")
+      format("woff2"),
+    url("https://db.onlinewebfonts.com/t/1dc8ecd8056a5ea7aa7de1db42b5b639.woff")
+      format("woff"),
+    url("https://db.onlinewebfonts.com/t/1dc8ecd8056a5ea7aa7de1db42b5b639.ttf")
+      format("truetype"),
+    url("https://db.onlinewebfonts.com/t/1dc8ecd8056a5ea7aa7de1db42b5b639.svg#Gilroy-Regular")
+      format("svg");
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Gilroy-Regular";
+}
+html,
+body {
+  height: 100%;
+  width: 100%;
+}
+body {
+  overflow-x: hidden;
+}
+
+#page1 {
+  height: 100%;
+  width: 100%;
+  background-color: #000;
+}
+#page2 {
+  height: 100%;
+  width: 100%;
+  background-color: lightblue;
+  padding: 5vw 0;
+}
+
+#page3 {
+  height: 100%;
+  width: 100%;
+  background-color: #000;
+}
+
+#page2 h1 {
+  font-size: 40vw;
+  font-weight: 600;
+  text-transform: uppercase;
+  /* transform: translate(-100%); */
+}
