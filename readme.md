@@ -1,38 +1,34 @@
 # GSAP
 
-## [ 1 ] Property GSAP
+## GSAP Properties
+
+## [ 1 ] GSAP From and To
+
+```javascript
+  gsap.to("#box3", {
+  x: 1200,
+  duration: 2,        //  Animation Duration
+  rotate: 360,
+  delay: 1,           //  Delay For Animation
+  stagger:0.3         //  one by one animation
+  repeat: -1,         // infinite animation (-1)
+  yoyo: true,         // both size animation , true or false  /  Animation Revers
+});
 
 ```
-- Duration  = 0.3         /  Animation Duration
-- delay     = 0.5         /  Delay For Animation
-- stagger   = 0.3 or true /  one by one animation
-- repeat    = infinite animation (-1)
-- yoyo      = true or false  /  Animation Revers
 
-```
-
-## [ 2 ] Property GSAP Scrolling
-
-```
-- scrollTrigger: {
-    trigger: "#page2 h1",    target point
-    scroller: "body",
-    markers: true,          show scroll mark
-    start: "top 50%",       starting point
-    end: "top 30%",         Ending Point
-    scrub: 2                smooth = (1 to 10 any) or true/false */,
-  },
-
-```
+## [ 2 ] GSAP Scrolling
 
 ```javascript
 scrollTrigger: {
-  trigger: "#page2 #box",
-  scroller: "body",
-  markers: true,
-  start: "top 60%",
-  end: "top 30%",
-  scrub: 2 /* smooth = (1 to 10 any) or true/false */,
-  pin: true,
+  trigger: "#page2 #box", //  Target point
+  scroller: "body",       //  Scroll Options
+  markers: true,          //  Scroll Markers
+  start: "top 60%",       //  Start Point
+  end: "top 30%",         //  End points
+  scrub: 2,               //  smooth = (1 to 10 any) or true false
+  toggleActions: play,    //  "play pause resume reset",
+  pin: true,              //  pinned div or element
 },
+
 ```
