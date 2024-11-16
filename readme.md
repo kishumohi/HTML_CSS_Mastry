@@ -10,7 +10,7 @@
   duration: 2,        //  Animation Duration
   rotate: 360,
   delay: 1,           //  Delay For Animation
-  stagger:0.3         //  one by one animation
+  stagger:0.3,        //  one by one animation
   repeat: -1,         // infinite animation (-1)
   yoyo: true,         // both size animation , true or false  /  Animation Revers
 });
