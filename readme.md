@@ -90,3 +90,138 @@ string.addEventListener("mouseleave", function () {
   });
 });
 ```
+
+## [ 4 ] GSAP Cursor Animation
+
+### html Code
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="cursor"></div>
+    <div id="main">
+      <div id="image">
+        <div id="overlay"></div>
+        <img
+          src="https://images.unsplash.com/photo-1719937206300-fc0dac6f8cac?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+          alt=""
+        />
+      </div>
+    </div>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"
+      integrity="sha512-7eHRwcbYkK4d9g/6tD/mhkf++eoTHwpNM9woBxtPUBWm67zeAfFC+HrdoE2GanKeocly/VxeLvIqwvCdk7qScg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script src="script.js"></script>
+  </body>
+</html>
+```
+
+### CSS Code
+
+```css
+@font-face {
+  font-family: "Gilroy-Regular";
+  src: url("https://db.onlinewebfonts.com/t/1dc8ecd8056a5ea7aa7de1db42b5b639.eot");
+  src: url("https://db.onlinewebfonts.com/t/1dc8ecd8056a5ea7aa7de1db42b5b639.eot?#iefix")
+      format("embedded-opentype"), url("https://db.onlinewebfonts.com/t/1dc8ecd8056a5ea7aa7de1db42b5b639.woff2")
+      format("woff2"),
+    url("https://db.onlinewebfonts.com/t/1dc8ecd8056a5ea7aa7de1db42b5b639.woff")
+      format("woff"), url("https://db.onlinewebfonts.com/t/1dc8ecd8056a5ea7aa7de1db42b5b639.ttf")
+      format("truetype"),
+    url("https://db.onlinewebfonts.com/t/1dc8ecd8056a5ea7aa7de1db42b5b639.svg#Gilroy-Regular")
+      format("svg");
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Gilroy-Regular";
+}
+html,
+body {
+  height: 100%;
+  width: 100%;
+}
+#main {
+  height: 100%;
+  width: 100%;
+  background-color: #111;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#cursor {
+  width: 20px;
+  height: 20px;
+  background-color: #fff;
+  border-radius: 50%;
+  position: fixed;
+  pointer-events: none;
+  font-size: 5px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  z-index: 9;
+}
+#image {
+  height: 30vw;
+  width: 60vw;
+  position: relative;
+}
+#image img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+#overlay {
+  background-color: transparent;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  z-index: 10;
+}
+```
+
+### JavaScript Code
+
+```javascript
+let main = document.querySelector("#main");
+let cursor = document.querySelector("#cursor");
+let imageDiv = document.querySelector("#image");
+
+main.addEventListener("mousemove", function (dets) {
+  gsap.to(cursor, {
+    x: dets.x,
+    y: dets.y,
+    duration: 0.6,
+    // ease: "back.out",
+  });
+});
+
+imageDiv.addEventListener("mouseenter", function () {
+  cursor.innerHTML = "view More";
+  gsap.to(cursor, {
+    scale: 4,
+    backgroundColor: "#ffffff8a",
+  });
+});
+
+imageDiv.addEventListener("mouseleave", function () {
+  cursor.innerHTML = "";
+  gsap.to(cursor, {
+    scale: 1,
+    backgroundColor: "#fff",
+  });
+});
+```
