@@ -225,3 +225,7 @@ imageDiv.addEventListener("mouseleave", function () {
   });
 });
 ```
+
+**YOU-TUBE :-** [For More Prectise Youtube](https://www.youtube.com/watch?v=laCL0zsPzlY&list=PL8bX3D8aBEpkD5opCcetjXAJPCggJUfF5)
+
+**GIT-HUB :-** [For More Prectise Git ](https://github.com/codegridweb/landing-page-animation-with-project-preview)
