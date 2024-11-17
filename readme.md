@@ -20,9 +20,15 @@
 
 7. [GSAP Text Animation](#7-gsap-text-animation)
 
-   - [HTML](#71-css-code)
+   - [HTML](#71-html-code)
    - [CSS](#72-css-code)
    - [JS](#73-javascript)
+
+8. [GSAP Scrolling Text Animation](#8-gsap-scrolling-text-animation)
+
+   - [HTML](#81-html-code)
+   - [CSS](#82-css-code)
+   - [JS](#83-javascript)
 
 ## 1. GSAP from and to
 
@@ -503,5 +509,154 @@ gsap.from("h1 #right-span", {
   duration: 0.8,
   delay: 0.5,
   stagger: -0.15,
+});
+```
+
+## 8. GSAP Scrolling Text Animation
+
+### 8.1 html Code
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div id="page1"></div>
+
+    <div id="page2">
+      <div id="move">
+        <div class="marque">
+          <h1>THRIVE BEYOND LIMITS</h1>
+          <img
+            src="https://www.brandium.nl/wp-content/uploads/2023/07/arrow-br.svg"
+            alt=""
+          />
+        </div>
+        <div class="marque">
+          <h1>THRIVE BEYOND LIMITS</h1>
+          <img
+            src="https://www.brandium.nl/wp-content/uploads/2023/07/arrow-br.svg"
+            alt=""
+          />
+        </div>
+        <div class="marque">
+          <h1>THRIVE BEYOND LIMITS</h1>
+          <img
+            src="https://www.brandium.nl/wp-content/uploads/2023/07/arrow-br.svg"
+            alt=""
+          />
+        </div>
+        <div class="marque">
+          <h1>THRIVE BEYOND LIMITS</h1>
+          <img
+            src="https://www.brandium.nl/wp-content/uploads/2023/07/arrow-br.svg"
+            alt=""
+          />
+        </div>
+        <div class="marque">
+          <h1>THRIVE BEYOND LIMITS</h1>
+          <img
+            src="https://www.brandium.nl/wp-content/uploads/2023/07/arrow-br.svg"
+            alt=""
+          />
+        </div>
+      </div>
+    </div>
+
+    <div id="page3"></div>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"
+      integrity="sha512-7eHRwcbYkK4d9g/6tD/mhkf++eoTHwpNM9woBxtPUBWm67zeAfFC+HrdoE2GanKeocly/VxeLvIqwvCdk7qScg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script src="script.js"></script>
+  </body>
+</html>
+```
+
+### 8.2 CSS Code
+
+```css
+@font-face {
+  font-family: "NeueMachina";
+  src: url("/3856NeueMachina.woff2");
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "NeueMachina";
+}
+html,
+body {
+  height: 100%;
+  width: 100%;
+}
+body {
+  background-color: #111;
+}
+
+#page1,
+#page2,
+#page3 {
+  height: 100vh;
+  width: 100%;
+}
+
+#move {
+  background-color: #d8ff04;
+  display: flex;
+  padding: 2vw 0;
+  overflow: hidden;
+}
+
+.marque {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  gap: 3vw;
+  padding: 0 1.5vw;
+  transform: translateX(-100%);
+}
+.marque h1 {
+  font-size: 50px;
+  font-weight: 800;
+}
+.marque img {
+  height: 4vw;
+}
+```
+
+### 8.3 JavaScript
+
+```javascript
+window.addEventListener("wheel", function (dets) {
+  if (dets.deltaY > 0) {
+    gsap.to(".marque", {
+      transform: "translateX(-200%)",
+      duration: 4,
+      repeat: -1,
+      ease: "none",
+    });
+    gsap.to(".marque img", {
+      rotate: 180,
+    });
+  } else {
+    gsap.to(".marque", {
+      transform: "translateX(0%)",
+      duration: 4,
+      repeat: -1,
+      ease: "none",
+    });
+    gsap.to(".marque img", {
+      rotate: 0,
+    });
+  }
 });
 ```
