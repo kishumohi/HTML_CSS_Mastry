@@ -2,15 +2,23 @@
 
 ## GSAP Properties
 
-1. [GSAP From and TO](#GSAPFromandTo)
-2. [GSAP Scrolling](#GSAPScrolling)
-3. [GSAP Basic Timeline](#GSAPTimeLine)
-4. [GSAP SVG Animation](#GSAPSVGAnimation)
-5. [GSAP Cursor Animation](#GSAPCursorAnimation)
-6. [GSAP Cursor Animation](#GSAPCursorAnimation)
-7. [GSAP Side-Nav Timeline Animation](#GSAPTimelineAnimationInSide-Nav)
+1. [GSAP From and TO](#1-gsap-from-and-to)
+2. [GSAP Scrolling](#2-gsap-scrolling)
+3. [GSAP Basic Timeline](#3-gsap-timeline)
+4. [GSAP SVG Animation](#4-gsap-svg-animation)
+5. [GSAP Cursor Animation](#5-gsap-cursor-animation)
 
-## [ 1 ] GSAP From and To
+   - [HTML](#51-html-code)
+   - [CSS](#52-css-code)
+   - [JS](#53-javascript-code)
+
+6. [GSAP Side-Nav Timeline Animation](#6-gsap-timeline-animation-in-side-nav)
+
+   - [HTML](#61-html-code)
+   - [CSS](#62-css-code)
+   - [JS](#63-javascript-code)
+
+## 1. GSAP from and to
 
 ```javascript
 gsap.to("#box3", {
@@ -24,7 +32,7 @@ gsap.to("#box3", {
 });
 ```
 
-## [ 2 ] GSAP Scrolling
+## 2. GSAP Scrolling
 
 ```javascript
 scrollTrigger: {
@@ -40,7 +48,7 @@ scrollTrigger: {
 
 ```
 
-## [ 3 ] GSAP TimeLine
+## 3. GSAP TimeLine
 
 ```javascript
 let tl = gsap.timeline({
@@ -70,7 +78,7 @@ tl.to("#box4B", {
 });
 ```
 
-## [ 4 ] GSAP SVG Animation
+## 4. GSAP SVG Animation
 
 **intial Path :-** start (10,100) center (500,100) end (990 100)
 
@@ -99,9 +107,9 @@ string.addEventListener("mouseleave", function () {
 });
 ```
 
-## [ 4 ] GSAP Cursor Animation
+## 5. GSAP Cursor Animation
 
-### html Code
+### 5.1 html Code
 
 ```html
 <!DOCTYPE html>
@@ -134,7 +142,7 @@ string.addEventListener("mouseleave", function () {
 </html>
 ```
 
-### CSS Code
+### 5.2 CSS Code
 
 ```css
 @font-face {
@@ -201,7 +209,7 @@ body {
 }
 ```
 
-### JavaScript Code
+### 5.3 JavaScript Code
 
 ```javascript
 let main = document.querySelector("#main");
@@ -238,9 +246,9 @@ imageDiv.addEventListener("mouseleave", function () {
 
 **GIT-HUB :-** [For More Prectise Git ](https://github.com/codegridweb/landing-page-animation-with-project-preview)
 
-## [ 5 ] GSAP Timeline Animation In Side-Nav
+## 6. GSAP Timeline Animation In Side-Nav
 
-### html Code
+### 6.1 html Code
 
 ```html
 <!DOCTYPE html>
@@ -281,7 +289,7 @@ imageDiv.addEventListener("mouseleave", function () {
 </html>
 ```
 
-### CSS Code
+### 6.2 CSS Code
 
 ```css
 * {
@@ -350,7 +358,7 @@ body {
 }
 ```
 
-### JavaScript Code
+### 6.3 JavaScript Code
 
 ```javascript
 let menu = document.querySelector("#nav i");
