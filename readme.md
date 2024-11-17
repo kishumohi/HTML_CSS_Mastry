@@ -18,6 +18,12 @@
    - [CSS](#62-css-code)
    - [JS](#63-javascript-code)
 
+7. [GSAP Text Animation](#7-gsap-text-animation)
+
+   - [HTML](#71-css-code)
+   - [CSS](#72-css-code)
+   - [JS](#73-javascript)
+
 ## 1. GSAP from and to
 
 ```javascript
@@ -387,5 +393,115 @@ menu.addEventListener("click", function () {
 
 cross.addEventListener("click", function () {
   tl.reverse();
+});
+```
+
+## 7. GSAP Text Animation
+
+### 7.1 html Code
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <h1>kalavadiya</h1>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"
+      integrity="sha512-7eHRwcbYkK4d9g/6tD/mhkf++eoTHwpNM9woBxtPUBWm67zeAfFC+HrdoE2GanKeocly/VxeLvIqwvCdk7qScg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script src="script.js"></script>
+  </body>
+</html>
+```
+
+### 7.2 CSS Code
+
+```css
+@font-face {
+  font-family: "Gilroy-Regular";
+  src: url("https://db.onlinewebfonts.com/t/1dc8ecd8056a5ea7aa7de1db42b5b639.eot");
+  src: url("https://db.onlinewebfonts.com/t/1dc8ecd8056a5ea7aa7de1db42b5b639.eot?#iefix")
+      format("embedded-opentype"), url("https://db.onlinewebfonts.com/t/1dc8ecd8056a5ea7aa7de1db42b5b639.woff2")
+      format("woff2"),
+    url("https://db.onlinewebfonts.com/t/1dc8ecd8056a5ea7aa7de1db42b5b639.woff")
+      format("woff"), url("https://db.onlinewebfonts.com/t/1dc8ecd8056a5ea7aa7de1db42b5b639.ttf")
+      format("truetype"),
+    url("https://db.onlinewebfonts.com/t/1dc8ecd8056a5ea7aa7de1db42b5b639.svg#Gilroy-Regular")
+      format("svg");
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Gilroy-Regular";
+  color: #fff;
+}
+html,
+body {
+  height: 100%;
+  width: 100%;
+}
+body {
+  background-color: #111;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+h1 {
+  font-size: 100px;
+  /* background-color: red; */
+  overflow: hidden;
+}
+h1 span {
+  display: inline-block;
+}
+```
+
+### 7.3 JavaScript
+
+```javascript
+function breakTheText() {
+  var h1 = document.querySelector("h1");
+  var h1Text = h1.textContent;
+
+  var splittedText = h1Text.split("");
+
+  var clutter = "";
+  var halfValue = Math.floor(splittedText.length / 2);
+  console.log(halfValue);
+  splittedText.forEach((elem, idx) => {
+    if (idx < halfValue) {
+      clutter += `<span id="left-span">${elem}</span>`;
+    } else {
+      clutter += `<span id="right-span">${elem}</span>`;
+    }
+  });
+
+  h1.innerHTML = clutter;
+}
+breakTheText();
+
+gsap.from("h1 #left-span", {
+  y: 50,
+  opacity: 0,
+  duration: 0.8,
+  delay: 0.5,
+  stagger: 0.15,
+});
+
+gsap.from("h1 #right-span", {
+  y: 50,
+  opacity: 0,
+  duration: 0.8,
+  delay: 0.5,
+  stagger: -0.15,
 });
 ```
