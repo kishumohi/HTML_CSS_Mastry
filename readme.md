@@ -2,6 +2,14 @@
 
 ## GSAP Properties
 
+1. [GSAP From and TO](#GSAPFromandTo)
+2. [GSAP Scrolling](#GSAPScrolling)
+3. [GSAP Basic Timeline](#GSAPTimeLine)
+4. [GSAP SVG Animation](#GSAPSVGAnimation)
+5. [GSAP Cursor Animation](#GSAPCursorAnimation)
+6. [GSAP Cursor Animation](#GSAPCursorAnimation)
+7. [GSAP Side-Nav Timeline Animation](#GSAPTimelineAnimationInSide-Nav)
+
 ## [ 1 ] GSAP From and To
 
 ```javascript
@@ -229,3 +237,147 @@ imageDiv.addEventListener("mouseleave", function () {
 **YOU-TUBE :-** [For More Prectise Youtube](https://www.youtube.com/watch?v=laCL0zsPzlY&list=PL8bX3D8aBEpkD5opCcetjXAJPCggJUfF5)
 
 **GIT-HUB :-** [For More Prectise Git ](https://github.com/codegridweb/landing-page-animation-with-project-preview)
+
+## [ 5 ] GSAP Timeline Animation In Side-Nav
+
+### html Code
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div id="main">
+      <div id="nav">
+        <h2>Sheriyans</h2>
+        <i class="ri-menu-3-line"></i>
+      </div>
+      <div id="full">
+        <h4>Work</h4>
+        <h4>About</h4>
+        <h4>Services</h4>
+        <h4>Course</h4>
+        <h4>Contact Us</h4>
+        <i class="ri-close-line"></i>
+      </div>
+    </div>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"
+      integrity="sha512-7eHRwcbYkK4d9g/6tD/mhkf++eoTHwpNM9woBxtPUBWm67zeAfFC+HrdoE2GanKeocly/VxeLvIqwvCdk7qScg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script src="script.js"></script>
+  </body>
+</html>
+```
+
+### CSS Code
+
+```css
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Gilroy-Regular";
+}
+html,
+body {
+  height: 100%;
+  width: 100%;
+}
+body {
+  overflow: hidden;
+}
+#main {
+  height: 100%;
+  width: 100%;
+  background-image: url(https://images.unsplash.com/photo-1558546030-e2ef8699ffc7?q=80&w=928&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D);
+  background-size: cover;
+  background-position: center;
+}
+
+#nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 40px 50px;
+  color: #fff;
+}
+#nav h2 {
+  font-size: 30px;
+}
+#nav i {
+  font-size: 30px;
+  font-weight: 800;
+  cursor: pointer;
+}
+#full {
+  height: 100%;
+  width: 40%;
+  background-color: rgba(255, 255, 255, 0.544);
+  position: absolute;
+  top: 0;
+  right: -40%;
+  backdrop-filter: blur(10px);
+  padding: 150px 60px;
+}
+#full h4 {
+  font-weight: 50;
+  font-size: 50px;
+  margin-bottom: 10px;
+}
+
+#full i {
+  position: absolute;
+  top: 5%;
+  right: 10%;
+  background-color: white;
+  border-radius: 50%;
+  padding: 5px;
+  font-weight: 600;
+  font-size: 25px;
+  cursor: pointer;
+}
+```
+
+### JavaScript Code
+
+```javascript
+let menu = document.querySelector("#nav i");
+let cross = document.querySelector("#full i");
+let tl = gsap.timeline();
+
+tl.to("#full", {
+  right: 0,
+  duration: 0.5,
+});
+tl.from("#full h4", {
+  x: 150,
+  duration: 0.6,
+  stagger: 0.28,
+  opacity: 0,
+});
+tl.from("#full i", {
+  opacity: 0,
+});
+
+tl.pause();
+
+menu.addEventListener("click", function () {
+  tl.play();
+});
+
+cross.addEventListener("click", function () {
+  tl.reverse();
+});
+```

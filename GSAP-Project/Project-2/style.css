@@ -1,0 +1,62 @@
+@font-face {
+  font-family: "Gilroy-Regular";
+  src: url("https://db.onlinewebfonts.com/t/1dc8ecd8056a5ea7aa7de1db42b5b639.eot");
+  src: url("https://db.onlinewebfonts.com/t/1dc8ecd8056a5ea7aa7de1db42b5b639.eot?#iefix")
+      format("embedded-opentype"),
+    url("https://db.onlinewebfonts.com/t/1dc8ecd8056a5ea7aa7de1db42b5b639.woff2")
+      format("woff2"),
+    url("https://db.onlinewebfonts.com/t/1dc8ecd8056a5ea7aa7de1db42b5b639.woff")
+      format("woff"),
+    url("https://db.onlinewebfonts.com/t/1dc8ecd8056a5ea7aa7de1db42b5b639.ttf")
+      format("truetype"),
+    url("https://db.onlinewebfonts.com/t/1dc8ecd8056a5ea7aa7de1db42b5b639.svg#Gilroy-Regular")
+      format("svg");
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Gilroy-Regular";
+}
+html,
+body {
+  height: 100%;
+  width: 100%;
+}
+
+#main {
+  height: 100%;
+  width: 100%;
+  background-color: #333;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+#cursor {
+  width: 20px;
+  height: 20px;
+  background-color: #fff;
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: 50%;
+  pointer-events: none;
+  display: flex;
+  color: red;
+  align-items: center;
+  text-align: center;
+  font-size: 07px;
+}
+
+#image {
+  width: 100px;
+  height: 100px;
+  background-color: darkgrey;
+}
+
+#image img {
+  width: 200px;
+  height: 200px;
+  display: none;
+}
